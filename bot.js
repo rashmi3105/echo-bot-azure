@@ -1,6 +1,3 @@
-// Copyright (c) Microsoft Corporation. All rights reserved.
-// Licensed under the MIT License.
-
 const { ActivityHandler } = require('botbuilder');
 
 class EchoBot extends ActivityHandler {
@@ -8,7 +5,7 @@ class EchoBot extends ActivityHandler {
         super();
         // See https://aka.ms/about-bot-activity-message to learn more about the message and other activity types.
         this.onMessage(async (context, next) => {
-            await context.sendActivity(context.activity.text);
+            await context.sendActivity(context.activity.text.split('').reverse().join(''));
 
             // By calling next() you ensure that the next BotHandler is run.
             await next();
@@ -28,3 +25,4 @@ class EchoBot extends ActivityHandler {
 }
 
 module.exports.EchoBot = EchoBot;
+
